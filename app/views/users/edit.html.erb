@@ -1,0 +1,29 @@
+<div class='container'>
+ <div class='row'>
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+   <br>
+   <h1>Userinfo</h1>
+   <% if @user.errors.any? %>
+     <div class="alert alert-warning">
+     <ul>
+     <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+     <% end %>
+     </ul>
+     </div>
+     <% end %>
+   <%= form_with model:@user, local:true do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control" %>
+    <br><br>
+    <%= f.label :image %><br>
+    <%= f.attachment_field :profile_image %>
+    <br><br>
+    <%= f.label :introduction %><br>
+    <%= f.text_area :introduction, class: "form-control" %>
+    <br>
+    <%= f.submit 'Update User',class: "btn btn-secondary" %>
+   <% end %>
+  </div>
+ </div>
+</div>
