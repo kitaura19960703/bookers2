@@ -31,6 +31,7 @@ class BooksController < ApplicationController
     flash[:notice] = 'successfully'
     else
     render action: :edit
+    flash[:notice] = 'error'
     end
   end
   def edit
